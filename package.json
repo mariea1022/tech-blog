@@ -4,7 +4,7 @@
   "description": "## Description The task was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This application follows the MVC paradigm in its architectural structure, uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-css": "tailwindcss build src/styles.css -o public/css/styles.css"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
     "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
   }
 }
