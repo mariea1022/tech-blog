@@ -1,0 +1,11 @@
+<!-- html template for landing page with all existing blogs if any have been posted -->
+{{#each blogs as |blog| }}
+<div>
+  <div>
+    <h2>{{blog.title}}</h2>
+  </div>
+  <div>
+    <h3>{{blog.date}}</h3>
+  </div>
+</div>
+{{/each}}
