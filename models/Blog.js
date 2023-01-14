@@ -20,11 +20,16 @@ Blog.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
+    date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     user_id: {
         type: DataTypes.STRING,
         references: {
           // This references the `user` model
-          model: 'user_id',
+          model: 'user',
           key: 'id',
         },
     }
