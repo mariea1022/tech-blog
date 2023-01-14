@@ -1,1 +1,18 @@
 <!-- html template for dashboard that presents any blog posts a user has already created and the option to add a new blog post-->
+<div>
+  <h2> Your Posts</h2>
+  {{#each blogs as |blog|}}
+    <div>
+      <div>
+        <h2>{{blog.title}}</h2>
+      </div>
+      <div>
+        <h3>{{blog.date}}</h3>
+      </div>
+    </div>
+  {{/each}}
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">login</button>
+  </div>
+
+</div>
