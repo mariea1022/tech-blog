@@ -1,4 +1,7 @@
-<!-- html template for all the pages -->
+<!-- main html template
+WHEN I am signed in to the site
+THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,32 +20,33 @@
           </div>
           <ul>
             <li>
-              <a href="#">
+              <a href="/">
                 <span>Home</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/dashboard">
                 <span>Dashboard</span>
               </a>
             </li>
             <li>
-                <!-- if else statements -->
-              <a href="#">
-                <span>Login</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span>Logout</span>
-              </a>
+              <!-- if else statements -->
+              {{#if loggedIn}}
+                <a href="/">
+                  <span>Logout</span>
+                </a>
+              {{else}}
+                <a href="/login">
+                  <span>Logout</span>
+                </a>
+              {{/if}}
             </li>
           </ul>
         </nav>
       </div><!-- end nav -->
 
       <main><!-- container for existing blog posts -->
-        {{{ body }}}
+        {{{body}}}
       </main>
     </div><!-- content wrapper -->
   </body>
