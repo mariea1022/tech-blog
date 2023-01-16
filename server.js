@@ -3,7 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 
-// SequelizeStore is a SQL session store using Sequelize.js
+// Initializing sequelize with session store/ SequelizeStore is a SQL session store using Sequelize.js
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // is Node.js global function that allows to extract contents from module.exports object inside some file
