@@ -26,7 +26,7 @@ Blog.init(
       defaultValue: DataTypes.NOW,
     },
     user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
           // This references the `user` model
           model: 'user',
