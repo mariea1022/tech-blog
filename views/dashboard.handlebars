@@ -1,18 +1,21 @@
-<!-- html template for dashboard that presents any blog posts a user has already created and the option to add a new blog post-->
+<!-- WHEN I am signed in to the site
+THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
+<!-- WHEN I click on the dashboard option in the navigation
+THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post -->
+
 <div>
   <h2> Your Posts</h2>
   {{#each blogs as |blog|}}
-    <div>
-      <div>
-        <h2>{{blog.title}}</h2>
+    <div class="card">
+      <div class="card-header">
+        <h4><a class="link" href="/post/{{id}}">{{title}}</a></h4>
+        <p>Posted by {{user.username}} on {{format_date created_at}}</p>
       </div>
-      <div>
-        <h3>{{blog.date}}</h3>
-      </div>
+      <p class="card-body">{{blog.blog_content}}</p>
     </div>
   {{/each}}
   <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
+    <button class="btn btn-primary" type="submit">New Post</button>
   </div>
 
 </div>
