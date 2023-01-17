@@ -2,3 +2,32 @@
 THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
 WHEN I enter a comment and click on the submit button while signed in
 THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created -->
+
+{{#each blogs as |blog|}}
+    <div class="card">
+      <div class="card-header">
+        <h4><a class="link" href="/post/{{id}}">{{blog.blog_name}}</a></h4>
+        <p>Posted by {{user.username}} on {{format_date created_at}}</p>
+      </div>
+      <p class="card-body">{{blog.blog_content}}</p>
+    </div>
+{{/each}}
+
+{{#if loggedIn}}
+<div class="card">
+    <h3 class="card-header"></h3>
+    <form class="card-body comment-form" id="comment-form">
+
+        <label class="form-label">Comment</label>
+        <input id="comment" name="comment-body" class="form-input" />
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="../public/js/comment.js"></script>
+{{/if}}
