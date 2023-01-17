@@ -1,17 +1,17 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  const usernameEl = document.getElementById("username-login").value.trim();
-  const passwordEl = document.getElementById("password-login").value.trim();
+  const username = document.getElementById("username-login").value.trim();
+  const password = document.getElementById("password-login").value.trim();
 
-  //check both inputs are there.
-  if (!usernameEl || !passwordEl) {
-    alert("You have not entered a username/password");
+  // validate that both username and password were entered
+  if (!username || !password) {
+    alert("Please enter both a username or password");
     return;
   }
 
   const response = await fetch("/api/users/login", {
     method: "POST",
-    body: JSON.stringify({ usernameEl, passwordEl }),
+    body: JSON.stringify({ username, password }),
     headers: { "Content-Type": "application/json" },
   });
 
@@ -22,5 +22,5 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const loginFormEl = document.querySelector('#login-form');
+const loginFormEl = document.querySelector('.login-form');
 loginFormEl.addEventListener('submit', loginFormHandler);
