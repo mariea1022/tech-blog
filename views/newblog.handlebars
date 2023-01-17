@@ -2,3 +2,18 @@
 THEN I am prompted to enter both a title and contents for my blog post
 WHEN I click on the button to create a new blog post
 THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post -->
+
+<div class="card">
+    <h3 class="card-header">Create New Post</h3>
+    <form class="card-body new-post-form" id="new-post-form">
+        <label for="post-title" class="form-label">Title</label>
+        <input type="text" id="post-title" name="post-title" class="form-input" />
+
+        <label class="form-label" for="content">Content</label>
+        <input id="content" name="content" class="form-input" />
+
+        <button type="submit" class="btn">Create</button>
+    </form>
+</div>
+
+<script src="../public/js/add-post.js"></script>
