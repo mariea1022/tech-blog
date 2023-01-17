@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Blog, User, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
-// get hompage with existing blg posts
+// get homepage with existing blog posts
 router.get("/", async (req, res) => {
   try {
     // we need to get all Posts and include the User for each
@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["username"]
         },
       ],
     });
