@@ -4,17 +4,17 @@ const userData =
 [
     {
       "username": "Jane",
-      "email": "jane@hotmail.com",
+      // "email": "jane@hotmail.com",
       "password": "password1"
     },
     {
       "username": "Fred",
-      "email": "fred25@gmail.com",
+      // "email": "fred25@gmail.com",
       "password": "password12"
     },
     {
       "username": "Michael",
-      "email": "michael_j@aol.com",
+      // "email": "michael_j@aol.com",
       "password": "password123"
     }
   ]
