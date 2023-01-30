@@ -1,3 +1,4 @@
+
 <!-- main html template
 WHEN I am signed in to the site
 THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
@@ -34,7 +35,7 @@ THEN I see navigation links for the homepage, the dashboard, and the option to l
               <!-- if else statements -->
               {{#if loggedIn}}
                 <a href="/">
-                  <span>Logout</span>
+                  <span id="logout">Logout</span>
                 </a>
               {{else}}
                 <a href="/login">
