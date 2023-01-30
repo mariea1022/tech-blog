@@ -19,6 +19,6 @@ const userData =
     }
   ]
 
-  const seedUserData = () => User.bulkCreate(userData);
+  const seedUserData = () => User.bulkCreate(userData, {individualHooks: true});
 
   module.exports = seedUserData;
