@@ -1,4 +1,3 @@
-
 <!-- main html template
 WHEN I am signed in to the site
 THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
@@ -31,11 +30,10 @@ THEN I see navigation links for the homepage, the dashboard, and the option to l
                 <span>Dashboard</span>
               </a>
             </li>
-            <li>
               <!-- if else statements -->
-              {{#if loggedIn}}
-                <a href="/">
-                  <span id="logout">Logout</span>
+            <li>{{#if loggedIn}}
+                <a href="/" id="logout">
+                  <span>Logout</span>
                 </a>
               {{else}}
                 <a href="/login">
@@ -52,4 +50,5 @@ THEN I see navigation links for the homepage, the dashboard, and the option to l
       </main>
     </div><!-- content wrapper -->
   </body>
+  <script src="/js/logout.js"></script>
 </html>
