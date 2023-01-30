@@ -8,11 +8,11 @@ router.get("/", withAuth, (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ["id", "blog_name", "blog_content", "created_at"],
+    attributes: ["id", "blog_name", "blog_content"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_content", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_content", "blog_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],
@@ -31,7 +31,7 @@ router.get("/", withAuth, (req, res) => {
         })
       );
       res.render("dashboard", {
-        posts,
+        blogs,
         loggedIn: true,
       });
     })
@@ -46,11 +46,11 @@ router.get("/edit/:id", withAuth, (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "blog_name", "blog_content", "created_at"],
+    attributes: ["id", "blog_name", "blog_content"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_content", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_content", "blog_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],

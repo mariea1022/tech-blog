@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const sequelize = require("../config/connection");
 const { Blog, User, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
@@ -37,10 +38,10 @@ router.get("/post/:id", withAuth, async (req, res) => {
       ],
     });
 
-    if (postData) {
+    if (blogData) {
       const blog = blogData.get({ plain: true });
       console.log(blog);
-      res.render("single-post", { post, loggedIn: req.session.loggedIn });
+      res.render("single-post", { blog, loggedIn: req.session.loggedIn });
     } else {
       res.status(404).end();
     }
