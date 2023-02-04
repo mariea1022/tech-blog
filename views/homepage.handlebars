@@ -9,7 +9,7 @@ THEN I am taken to the homepage and presented with existing blog posts that incl
   <div class="card border-2 border-rose-500">
     <div class="card-header">
       <h4><a class="link" href="/post/{{id}}">{{blog.blog_name}}</a></h4>
-      <p>Posted by {{user.username}} on {{format_date created_at}}</p>
+      <p>Posted by {{user.username}} on {{format_date blog.date}}</p>
     </div>
     <p class="card-body">{{blog.blog_content}}</p>
   </div>

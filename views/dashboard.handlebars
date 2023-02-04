@@ -9,13 +9,15 @@ THEN I am taken to the dashboard and presented with any blog posts I have alread
     <div class="card">
       <div class="card-header">
         <h4><a class="link" href="/post/{{id}}">{{title}}</a></h4>
-        <p>Posted by {{user.username}} on {{format_date created_at}}</p>
+        <p>Posted by {{user.username}} on {{format_date blog.date}}</p>
       </div>
       <p class="card-body">{{blog.blog_content}}</p>
     </div>
   {{/each}}
   <div class="form-group">
-    <button class="btn btn-primary" type="submit">New Post</button>
+    <button class="btn btn-primary" id="dashboard-add-post-btn" type="submit">New Post</button>
   </div>
 
 </div>
+
+<script src="/js/add-post.js"></script>
