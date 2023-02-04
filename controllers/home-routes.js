@@ -18,11 +18,19 @@ router.get("/", async (req, res) => {
     // serialize the data
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
     // render all the posts here
+    console.log(blogs)
     res.render("homepage", { blogs, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+router.get('/newblog', (req, res) => {
+  console.log(req.session)
+  res.render('newblog', {
+    loggedIn: req.session.loggedIn
+  })
+})
 
 // get single post only after user has logged in
 router.get("/post/:id", withAuth, async (req, res) => {
