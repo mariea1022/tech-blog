@@ -85,10 +85,11 @@ router.get("/edit/:id", withAuth, (req, res) => {
     });
 });
 
-router.get("/new", (req, res) => {
-  res.render("newblog", {
-    loggedIn: true,
-  });
-});
+router.get('/newblog', (req, res) => {
+  console.log(req.session)
+  res.render('newblog', {
+    loggedIn: req.session.loggedIn
+  })
+})
 
 module.exports = router;

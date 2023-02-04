@@ -25,38 +25,38 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get('/newblog', (req, res) => {
-  console.log(req.session)
-  res.render('newblog', {
-    loggedIn: req.session.loggedIn
-  })
-})
+// router.get('/newblog', (req, res) => {
+//   console.log(req.session)
+//   res.render('newblog', {
+//     loggedIn: req.session.loggedIn
+//   })
+// })
 
-// get single post only after user has logged in
-router.get("/post/:id", withAuth, async (req, res) => {
-  try {
-    const blogData = await Blog.findOne({
-      where: { id: req.params.id },
-      include: [
-        User,
-        {
-          model: Comment,
-          include: User,
-        },
-      ],
-    });
+// // get single post only after user has logged in
+// router.get("/post/:id", withAuth, async (req, res) => {
+//   try {
+//     const blogData = await Blog.findOne({
+//       where: { id: req.params.id },
+//       include: [
+//         User,
+//         {
+//           model: Comment,
+//           include: User,
+//         },
+//       ],
+//     });
 
-    if (blogData) {
-      const blog = blogData.get({ plain: true });
-      console.log(blog);
-      res.render("single-post", { blog, loggedIn: req.session.loggedIn });
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     if (blogData) {
+//       const blog = blogData.get({ plain: true });
+//       console.log(blog);
+//       res.render("single-post", { blog, loggedIn: req.session.loggedIn });
+//     } else {
+//       res.status(404).end();
+//     }
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // get login page
 router.get("/login", (req, res) => {
