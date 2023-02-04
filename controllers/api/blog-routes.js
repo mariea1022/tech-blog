@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 // Get all posts
 router.get("/", (req, res) => {
     Blog.findAll({
-        attributes: ["id", "blog_content", "blog_name", "created_at"],
+        attributes: ["id", "blog_content", "blog_name", "date"],
         order: [
             ["created_at", "DESC"]
         ],
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
         },
         {
             model: Comment,
-            attributes: ["id", "comment_content", "blog_id", "user_id", "created_at"],
+            attributes: ["id", "comment_content", "blog_id", "user_id", "date"],
             include: {
                 model: User,
                 attributes: ["username"],
@@ -37,14 +37,14 @@ router.get("/:id", (req, res) => {
         where: {
             id: req.params.id,
         },
-        attributes: ["id", "blog_content", "blog_name", "created_at"],
+        attributes: ["id", "blog_content", "blog_name", "date"],
         include: [{
             model: User,
             attributes: ["username"],
         },
         {
             model: Comment,
-            attributes: ["id", "comment_content", "blog_id", "user_id", "created_at"],
+            attributes: ["id", "comment_content", "blog_id", "user_id", "date"],
             include: {
                 model: User,
                 attributes: ["username"],
@@ -69,7 +69,7 @@ router.get("/:id", (req, res) => {
 
 // Create a post
 router.post("/", withAuth, (req, res) => {
-    console.log("creating");
+    console.log("creating a post");
     Blog.create({
         blog_name: req.body.blog_name,
         blog_content: req.body.blog_content,

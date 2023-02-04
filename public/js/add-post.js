@@ -1,26 +1,26 @@
 const addPostFormHandler = (event) => {
   event.preventDefault();
 
-  document.location.replace("/newblog");
+  document.location.replace("/dashboard/newblog");
 };
 
 document
   .querySelector("#dashboard-add-post-btn")
   .addEventListener("click", addPostFormHandler);
 
-async function newPostHandler(event) {
+async function submitPostHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const post_content = document
-    .querySelector('textarea[name="post-content"]')
+  const blog_name = document.querySelector('#blog-name').value.trim();
+  const blog_content = document
+    .querySelector('#blog-content')
     .value.trim();
 
-  const response = await fetch(`/api/posts`, {
+  const response = await fetch(`/api/blogs`, {
     method: "POST",
     body: JSON.stringify({
-      title,
-      post_content,
+      blog_name,
+      blog_content,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -35,5 +35,5 @@ async function newPostHandler(event) {
 }
 
 document
-  .querySelector(".new-post-form")
-  .addEventListener("submit", newPostHandler);
+  .querySelector("#submit-new-post-btn")
+  .addEventListener("submit", submitPostHandler);
