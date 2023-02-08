@@ -1,14 +1,4 @@
-const addPostFormHandler = (event) => {
-  event.preventDefault();
-
-  document.location.replace("/dashboard/newblog");
-};
-
-document
-  .querySelector("#dashboard-add-post-btn")
-  .addEventListener("click", addPostFormHandler);
-
-async function submitPostHandler(event) {
+const submitPostHandler = async (event) => {
   event.preventDefault();
 
   const blog_name = document.querySelector('#blog-name').value.trim();
@@ -16,7 +6,7 @@ async function submitPostHandler(event) {
     .querySelector('#blog-content')
     .value.trim();
 
-  const response = await fetch(`/api/blogs`, {
+  let response = await fetch(`/api/blogs`, {
     method: "POST",
     body: JSON.stringify({
       blog_name,
